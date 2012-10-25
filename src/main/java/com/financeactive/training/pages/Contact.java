@@ -2,10 +2,14 @@ package com.financeactive.training.pages;
 
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.EventConstants;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.PageActivationContext;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 
 public class Contact {
@@ -45,7 +49,25 @@ public class Contact {
         return block2;
     }
 
-    public String getTheGrandTotal() throws InterruptedException {
+    public String getTheGrandTotal1() throws InterruptedException {
         return "42";
+    }
+
+    @Property
+    private int theGrandTotal = 42;
+
+    @InjectComponent
+    private Zone zone1;
+
+    @InjectComponent
+    private Zone zone2;
+
+    @Inject
+    private AjaxResponseRenderer ajaxResponseRenderer;
+
+    @OnEvent(EventConstants.ACTION)
+    public Zone onAction(int theGrandTotal) {
+        this.theGrandTotal = theGrandTotal + 1;
+        return zone1;
     }
 }
