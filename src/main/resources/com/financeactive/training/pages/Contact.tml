@@ -1,23 +1,6 @@
 <html t:type="layout" title="Contact training"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-        >
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
-<p>welcome ${name}</p>
-
-<t:delegate to="activeBlock"/>
-
-<t:block t:id="block1">
-    This is Block 1
-</t:block>
-
-<t:block t:id="block2">
-    ${theGrandTotal1}
-</t:block>
-
-<t:progressivedisplay/>
-<br/>
-
-<br/>
 <t:zone t:id="zone1" update="show">
     <t:actionlink zone="^" t:context="theGrandTotal">Update zone</t:actionlink>
     <br/>
