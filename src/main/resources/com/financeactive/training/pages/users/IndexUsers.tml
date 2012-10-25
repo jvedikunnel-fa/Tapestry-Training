@@ -2,7 +2,11 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-<t:pagelink page="users/createusers">New User</t:pagelink>
+<t:zone t:id="formZone">
+    <t:formuser user="user"/>
+</t:zone>
+<br/>
+<t:actionlink t:id="create">New User</t:actionlink>
 <br/>
 <br/>
 <t:grid source="users" add="actions" row="var:user">
@@ -12,10 +16,4 @@
         <t:actionlink t:id="delete" context="var:user">Delete</t:actionlink>
     </p:actionsCell>
 </t:grid>
-<br/>
-<br/>
-<t:zone t:id="formZone">
-    <t:formuser user="user"/>
-</t:zone>
-
 </html>

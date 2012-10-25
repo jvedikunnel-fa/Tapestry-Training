@@ -35,6 +35,12 @@ public class IndexUsers {
         return hbSession.createCriteria(User.class).list();
     }
 
+    @OnEvent(value = EventConstants.ACTION, component = "create")
+    Zone onCreate() {
+        this.user = null;
+        return formZone;
+    }
+
     @OnEvent(value = EventConstants.ACTION, component = "delete")
     @CommitAfter
     void onDelete(User user) {
