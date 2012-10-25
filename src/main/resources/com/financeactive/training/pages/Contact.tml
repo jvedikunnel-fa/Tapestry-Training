@@ -18,8 +18,9 @@
 <br/>
 
 <br/>
-<t:zone t:id="zone1">
+<t:zone t:id="zone1" update="show">
     <t:actionlink zone="^" t:context="theGrandTotal">Update zone</t:actionlink>
+    <br/>
     ${theGrandTotal}
 </t:zone>
 <t:zone t:id="zone2">
