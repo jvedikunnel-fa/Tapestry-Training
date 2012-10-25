@@ -1,16 +1,9 @@
 <html t:type="layout" title="Contact training"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
-<div t:type="zone" t:id="zoneManager">
-    <t:zone t:id="zone1" update="show">
-        <t:actionlink zone="^" t:context="theGrandTotal">Update zone</t:actionlink>
-        <br/>
-        ${theGrandTotal}
-    </t:zone>
-    <t:zone t:id="zone2">
-        2:${theGrandTotal}
-    </t:zone>
-</div>
+${name}
+<t:valuefield value="name"/>
+<t:valuefield value="name"/>
 
 
 </html>
