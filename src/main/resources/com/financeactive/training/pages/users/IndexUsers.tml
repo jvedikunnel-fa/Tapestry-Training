@@ -9,11 +9,14 @@
 <t:actionlink t:id="create">New User</t:actionlink>
 <br/>
 <br/>
-<t:grid source="users" add="actions" row="var:user">
+<t:grid source="users" add="actions" row="user">
     <p:actionsCell>
-        <t:actionlink t:zone="formZone" t:id="edit" context="var:user">Edit</t:actionlink>
+        <t:actionlink t:zone="formZone" t:id="edit" context="user">Edit</t:actionlink>
         |
-        <t:actionlink t:id="delete" context="var:user">Delete</t:actionlink>
+        <t:actionlink t:id="delete" context="user">Delete</t:actionlink>
     </p:actionsCell>
+    <p:emailCell>
+        <a href="mailto:${user.email}">${user.email}</a>
+    </p:emailCell>
 </t:grid>
 </html>
