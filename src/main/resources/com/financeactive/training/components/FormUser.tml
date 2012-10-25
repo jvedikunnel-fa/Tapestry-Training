@@ -1,1 +1,1 @@
-<t:beaneditform xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" object="user" t:clientValidation="false"/>
+<t:beaneditform xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" t:id="beanedit" object="user" t:clientValidation="false"/>

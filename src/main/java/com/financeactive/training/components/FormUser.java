@@ -4,9 +4,11 @@ import com.financeactive.training.entities.User;
 import com.financeactive.training.pages.users.IndexUsers;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.EventConstants;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
@@ -26,10 +28,21 @@ public class FormUser {
     @Inject
     private Session hbSession;
 
+    @InjectComponent
+    BeanEditForm beanedit;
+
     @OnEvent(EventConstants.SUCCESS)
     @CommitAfter
     private Class onSuccess() {
         hbSession.saveOrUpdate(user);
         return IndexUsers.class;
+    }
+
+    @OnEvent(value = EventConstants.VALIDATE, component = "beanedit")
+    public void onValidateFromEmail() {
+        String email = this.user.getEmail();
+        if (!email.contains("@") || !email.contains(".")) {
+            beanedit.recordError("Mail malformé (doit contenir @ et .)");
+        }
     }
 }
