@@ -15,6 +15,11 @@
             <artifactId>tapestry-hibernate</artifactId>
             <version>${tapestry-release-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.got5</groupId>
+            <artifactId>tapestry5-jquery</artifactId>
+            <version>${tapestry5-jquery.version}</version>
+        </dependency>
 
         <!-- This adds automatic compression of JavaScript and CSS when in production mode. -->
         <dependency>
@@ -147,5 +152,6 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
         <testng-release-version>5.14.10</testng-release-version>
         <easymock-release-version>3.0</easymock-release-version>
         <hsqldb.version>2.2.8</hsqldb.version>
+        <tapestry5-jquery.version>3.3.3</tapestry5-jquery.version>
     </properties>
 </project>
