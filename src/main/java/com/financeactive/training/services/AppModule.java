@@ -5,11 +5,14 @@ import org.apache.tapestry5.hibernate.HibernateSymbols;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.services.javascript.JavaScriptStack;
+import org.apache.tapestry5.services.javascript.JavaScriptStackSource;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -106,5 +109,10 @@ public class AppModule {
         // within the pipeline.
 
         configuration.add("Timing", filter);
+    }
+
+    @Contribute(JavaScriptStackSource.class)
+    public void contributeStacksource(MappedConfiguration<String, JavaScriptStack> configuration) {
+        configuration.add("training-stack", new TrainingStack());
     }
 }
