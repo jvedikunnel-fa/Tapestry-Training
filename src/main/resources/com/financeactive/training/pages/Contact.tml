@@ -17,9 +17,9 @@
 <t:progressivedisplay/>
 <br/>
 
-<t:actionlink zone="zone1" t:context="theGrandTotal">Update zone</t:actionlink>
 <br/>
 <t:zone t:id="zone1">
+    <t:actionlink zone="^" t:context="theGrandTotal">Update zone</t:actionlink>
     ${theGrandTotal}
 </t:zone>
 <t:zone t:id="zone2">

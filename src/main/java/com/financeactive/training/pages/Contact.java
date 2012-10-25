@@ -66,8 +66,9 @@ public class Contact {
     private AjaxResponseRenderer ajaxResponseRenderer;
 
     @OnEvent(EventConstants.ACTION)
-    public Zone onAction(int theGrandTotal) {
+    public void onAction(int theGrandTotal) {
         this.theGrandTotal = theGrandTotal + 1;
-        return zone1;
+        ajaxResponseRenderer.addRender("zone1", zone1);
+        ajaxResponseRenderer.addRender("zone2", zone2);
     }
 }
