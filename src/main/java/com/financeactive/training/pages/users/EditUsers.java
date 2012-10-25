@@ -23,7 +23,7 @@ public class EditUsers {
     @Inject
     Session hbSession;
 
-    @OnEvent(value = EventConstants.ACTION, component = "update")
+    @OnEvent(value = EventConstants.ACTION)
     public void onEdit(User user) {
         hbSession.update(user);
     }
