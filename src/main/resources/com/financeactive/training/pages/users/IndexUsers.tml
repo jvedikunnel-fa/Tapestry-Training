@@ -7,10 +7,15 @@
 <br/>
 <t:grid source="users" add="actions" row="var:user">
     <p:actionsCell>
-        <t:pagelink page="users/editusers" context="var:user">Edit</t:pagelink>
+        <t:actionlink t:zone="formZone" t:id="edit" context="var:user">Edit</t:actionlink>
         |
         <t:actionlink t:id="delete" context="var:user">Delete</t:actionlink>
     </p:actionsCell>
 </t:grid>
+<br/>
+<br/>
+<t:zone t:id="formZone">
+    <t:formuser user="user"/>
+</t:zone>
 
 </html>
