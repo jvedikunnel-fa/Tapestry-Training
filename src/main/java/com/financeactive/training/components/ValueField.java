@@ -1,7 +1,6 @@
 package com.financeactive.training.components;
 
-import org.apache.tapestry5.annotations.Parameter;
-import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.annotations.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +10,6 @@ import org.apache.tapestry5.annotations.Property;
  */
 public class ValueField {
 
-    @Parameter
-    @Property
+    @Component(id = "theField", publishParameters = "value")
     private String value;
 }
