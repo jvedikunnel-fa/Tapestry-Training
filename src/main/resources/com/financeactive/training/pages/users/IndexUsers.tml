@@ -6,6 +6,8 @@
 <br/>
 <t:grid source="users" add="actions" row="var:user">
     <p:actionsCell>
+        <t:pagelink page="users/editusers" context="var:user">Edit</t:pagelink>
+        |
         <t:actionlink t:id="delete" context="var:user">Delete</t:actionlink>
     </p:actionsCell>
 </t:grid>
