@@ -1,7 +1,13 @@
 <html t:type="layout" title="All users"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-        >
+      xmlns:p="tapestry:parameter">
 
 <t:pagelink page="users/createusers">New User</t:pagelink>
+<br/>
+<t:grid source="users" add="actions" row="var:user">
+    <p:actionsCell>
+        <t:actionlink t:id="delete" context="var:user">Delete</t:actionlink>
+    </p:actionsCell>
+</t:grid>
 
 </html>
