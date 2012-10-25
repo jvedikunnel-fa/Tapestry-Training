@@ -1,6 +1,7 @@
 package com.financeactive.training.services;
 
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.hibernate.HibernateSymbols;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
@@ -47,6 +48,7 @@ public class AppModule {
         // the first locale name is the default when there's no reasonable match).
         configuration.add(SymbolConstants.SUPPORTED_LOCALES, "fr,en");
         configuration.add(SymbolConstants.HMAC_PASSPHRASE, "mot de passe pour calculer le digest du formulaire (vérifie l'origine)");
+        configuration.add(HibernateSymbols.EARLY_START_UP, "true");
     }
 
 
