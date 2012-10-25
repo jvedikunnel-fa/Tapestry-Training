@@ -13,10 +13,15 @@ import org.apache.tapestry5.ioc.annotations.Symbol;
 /**
  * Layout component for pages of application training.
  */
-@Import(stylesheet = {"context:layout/layout.css",
-                      "context:bootstrap/css/bootstrap.css"},
+@Import(stylesheet = {"context:bootstrap/css/bootstrap.css",
+                      "context:layout/layout.css"},
         stack = "training-stack")
 public class Layout {
+    @Property
+    @Inject
+    @Symbol(SymbolConstants.TAPESTRY_VERSION)
+    private String tapestryVersion;
+
     /**
      * The page title, for the <title> element and the <h1> element.
      */
@@ -52,5 +57,9 @@ public class Layout {
 
     public String[] getPageNames() {
         return new String[]{"Index", "Guess", "Users", "About", "Contact"};
+    }
+
+    public String getCurrentPage() {
+        return resources.getPageName();
     }
 }

@@ -8,7 +8,7 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.corelib.components.BeanEditForm;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
@@ -29,7 +29,7 @@ public class FormUser {
     private Session hbSession;
 
     @InjectComponent
-    BeanEditForm beanedit;
+    private Form formUtilisateur;
 
     @OnEvent(EventConstants.SUCCESS)
     @CommitAfter
@@ -38,11 +38,11 @@ public class FormUser {
         return IndexUsers.class;
     }
 
-    @OnEvent(value = EventConstants.VALIDATE, component = "beanedit")
+    @OnEvent(value = EventConstants.VALIDATE, component = "formUtilisateur")
     public void onValidateFromEmail() {
         String email = this.user.getEmail();
         if (!email.contains("@") || !email.contains(".")) {
-            beanedit.recordError("Mail malformé (doit contenir @ et .)");
+            formUtilisateur.recordError("Mail malformé (doit contenir @ et .)");
         }
     }
 }

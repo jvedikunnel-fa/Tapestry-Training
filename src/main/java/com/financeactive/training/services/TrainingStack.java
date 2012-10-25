@@ -4,6 +4,7 @@ import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.services.javascript.JavaScriptStack;
 import org.apache.tapestry5.services.javascript.StylesheetLink;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,21 +16,21 @@ import java.util.List;
 public class TrainingStack implements JavaScriptStack {
     @Override
     public List<String> getStacks() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new LinkedList<String>();
     }
 
     @Override
     public List<Asset> getJavaScriptLibraries() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new LinkedList<Asset>();
     }
 
     @Override
     public List<StylesheetLink> getStylesheets() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new LinkedList<StylesheetLink>();
     }
 
     @Override
     public String getInitialization() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return "";
     }
 }

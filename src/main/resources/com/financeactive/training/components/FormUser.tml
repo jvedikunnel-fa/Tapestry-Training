@@ -1,1 +1,12 @@
-<t:beaneditform xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" t:id="beanedit" object="user" t:clientValidation="false"/>
+<!--<t:beaneditform class="form form-actions" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" t:id="beanedit" object="user" t:clientValidation="false"/>-->
+<t:form xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" t:id="formUtilisateur" t:clientValidation="false" class="form form-actions">
+    <t:errors/>
+    <fieldset>
+        <t:select value="user?.honorific"/>
+        <t:textfield value="user?.firstname"/>
+        <t:textfield value="user?.lastname"/>
+        <t:datefield value="user?.birthdate"/>
+        <t:textfield t:id="email" value="user?.email"/>
+        <t:submit title="Create/Update">Create/Update</t:submit>
+    </fieldset>
+</t:form>
