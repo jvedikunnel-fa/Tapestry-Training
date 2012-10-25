@@ -113,6 +113,6 @@ public class AppModule {
 
     @Contribute(JavaScriptStackSource.class)
     public void contributeStacksource(MappedConfiguration<String, JavaScriptStack> configuration) {
-        configuration.add("training-stack", new TrainingStack());
+//        configuration.add("training-stack", new TrainingStack());
     }
 }

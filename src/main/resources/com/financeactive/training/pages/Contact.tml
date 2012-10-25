@@ -5,7 +5,8 @@ ${name}
 <t:valuefield value="name"/>
 <t:valuefield value="name"/>
 
-<t:randomizer value="name"/>
+<t:randomizer value="name" message="literal:toto"/>
+<t:randomizer value="name" message="literal:titi"/>
 
 
 </html>

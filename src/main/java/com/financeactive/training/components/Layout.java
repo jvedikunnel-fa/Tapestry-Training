@@ -14,8 +14,9 @@ import org.apache.tapestry5.ioc.annotations.Symbol;
  * Layout component for pages of application training.
  */
 @Import(stylesheet = {"context:bootstrap/css/bootstrap.css",
-                      "context:layout/layout.css"},
-        stack = "training-stack")
+                      "context:layout/layout.css"}
+//        ,stack = "training-stack"
+)
 public class Layout {
     @Property
     @Inject
