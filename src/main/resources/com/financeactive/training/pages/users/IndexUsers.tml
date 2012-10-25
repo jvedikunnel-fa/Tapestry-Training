@@ -2,7 +2,7 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-<t:zone t:id="formZone">
+<t:zone t:id="formZone" t:mixins="simpleAlert" message="literal:formulaire">
     <t:formuser user="user"/>
 </t:zone>
 <br/>
@@ -13,7 +13,7 @@
     <p:actionsCell>
         <t:actionlink t:zone="formZone" t:id="edit" context="user">Edit</t:actionlink>
         |
-        <t:actionlink t:id="delete" context="user">Delete</t:actionlink>
+        <t:actionlink t:id="delete" context="user" t:mixins="simpleAlert" message="literal:tata">Delete</t:actionlink>
     </p:actionsCell>
     <p:emailCell>
         <a href="mailto:${user.email}">${user.email}</a>

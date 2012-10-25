@@ -2,7 +2,6 @@ package com.financeactive.training.components;
 
 import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.EventConstants;
-import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -30,9 +29,6 @@ public class Randomizer {
     @Inject
     private JavaScriptSupport javaScriptSupport;
 
-    @Inject
-    AlertManager alertManager;
-
     @Parameter
     @Property
     private String value;
@@ -43,12 +39,11 @@ public class Randomizer {
     @OnEvent(EventConstants.ACTION)
     void onAction() {
         value = UUID.randomUUID().toString();
-        alertManager.success("test");
     }
 
     @AfterRender
     void installJS() {
         JSONObject spec = new JSONObject().put("elementId", theLink.getClientId()).put("message", message);
-        javaScriptSupport.addInitializerCall("installSimpleAlert", spec);
+        javaScriptSupport.addInitializerCall("installRandomizer", spec);
     }
 }

@@ -7,7 +7,7 @@
         }
 
         return {
-            installRandomizer:init
+            installSimpleAlert:init
         };
     });
 })(jQuery);
