@@ -1,0 +1,7 @@
+<html t:type="layout" title="All users"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+        >
+
+<t:pagelink page="users/createusers">New User</t:pagelink>
+
+</html>
