@@ -9,6 +9,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -51,5 +52,10 @@ public class IndexUsers {
     Zone onEdit(User user) {
         this.user = user;
         return formZone;
+    }
+
+    public JSONObject getDialogParams() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
     }
 }
