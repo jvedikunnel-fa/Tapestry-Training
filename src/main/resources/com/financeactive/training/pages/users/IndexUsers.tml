@@ -3,7 +3,7 @@
       xmlns:p="tapestry:parameter">
 
 <t:jquery.dialog t:clientId="formDialog" title="User Form" params="dialogParams">
-    <t:zone t:id="formZone" t:mixins="simpleAlert" message="literal:formulaire">
+    <t:zone t:id="formZone" message="literal:formulaire">
         <t:formuser user="user"/>
     </t:zone>
 </t:jquery.dialog>
