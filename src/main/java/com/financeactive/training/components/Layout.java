@@ -97,6 +97,10 @@ public class Layout {
     }
 
     public String getLocaleName() {
-        return persistentLocale.get().getLanguage();
+        if (persistentLocale.isSet()) {
+            return persistentLocale.get().getLanguage();
+        } else {
+            return "";
+        }
     }
 }

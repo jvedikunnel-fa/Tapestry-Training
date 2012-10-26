@@ -85,6 +85,18 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
             <version>${hsqldb.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.tynamo</groupId>
+            <artifactId>tapestry-security</artifactId>
+            <version>${tapestry-security.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tapestry</groupId>
+                    <artifactId>tapestry-ioc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>training</finalName>
@@ -153,5 +165,6 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
         <easymock-release-version>3.0</easymock-release-version>
         <hsqldb.version>2.2.8</hsqldb.version>
         <tapestry5-jquery.version>3.3.3</tapestry5-jquery.version>
+        <tapestry-security.version>0.4.6</tapestry-security.version>
     </properties>
 </project>

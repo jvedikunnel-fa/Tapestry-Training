@@ -1,5 +1,6 @@
 package com.financeactive.training.pages;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -14,6 +15,7 @@ import java.util.Date;
 /**
  * Start page of application training.
  */
+@RequiresAuthentication
 public class Index {
     @Property
     @Inject

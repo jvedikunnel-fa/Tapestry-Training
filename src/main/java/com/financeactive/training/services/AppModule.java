@@ -2,8 +2,11 @@ package com.financeactive.training.services;
 
 import com.financeactive.training.pages.Index;
 import com.financeactive.training.pages.users.IndexUsers;
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.hibernate.HibernateSymbols;
+import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
@@ -34,6 +37,7 @@ public class AppModule {
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
         binder.bind(Sections.class);           // équivalent à faire une méthode public Sections buildSections(...);
+        binder.bind(TrainingRealm.class);
     }
 
     public static void contributeFactoryDefaults(
@@ -127,4 +131,10 @@ public class AppModule {
         configuration.add("users", new Section(componentClassResolver, "Users", IndexUsers.class), "after:*");
         configuration.add("index", new Section(componentClassResolver, "Index", Index.class));
     }
+
+    @Contribute(WebSecurityManager.class)
+    public static void addRealms(Configuration<Realm> configuration, TrainingRealm trainingRealm) {
+        configuration.add(trainingRealm);
+    }
+
 }
