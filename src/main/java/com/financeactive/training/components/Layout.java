@@ -1,5 +1,7 @@
 package com.financeactive.training.components;
 
+import com.financeactive.training.services.Section;
+import com.financeactive.training.services.Sections;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.ComponentResources;
@@ -44,6 +46,12 @@ public class Layout {
     @Inject
     private ComponentResources resources;
 
+    @Inject
+    private Sections sections;
+
+    @Property
+    private Section section;
+
     @Property
     @Inject
     @Symbol(SymbolConstants.APPLICATION_VERSION)
@@ -54,6 +62,18 @@ public class Layout {
         return resources.getPageName().equalsIgnoreCase(pageName)
                ? "current_page_item"
                : null;
+    }
+
+
+    public String getClassForSection() {
+        String pageName1 = resources.getPageName();
+        return section.contains(pageName1)
+               ? "active"
+               : null;
+    }
+
+    public Iterable<Section> getSections() {
+        return sections.entries();
     }
 
     public String[] getPageNames() {

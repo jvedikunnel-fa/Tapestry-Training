@@ -39,5 +39,7 @@ public class Section {
         return name;
     }
 
-
+    public Boolean contains(String name) {
+        return pages.contains(name);
+    }
 }

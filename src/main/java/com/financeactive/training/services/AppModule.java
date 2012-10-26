@@ -29,6 +29,7 @@ public class AppModule {
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+        binder.bind(Sections.class);           // équivalent à faire une méthode public Sections buildSections(...);
     }
 
     public static void contributeFactoryDefaults(
@@ -114,5 +115,9 @@ public class AppModule {
     @Contribute(JavaScriptStackSource.class)
     public void contributeStacksource(MappedConfiguration<String, JavaScriptStack> configuration) {
 //        configuration.add("training-stack", new TrainingStack());
+    }
+
+    public void contributeSections(OrderedConfiguration<Sections> configuration) {
+
     }
 }

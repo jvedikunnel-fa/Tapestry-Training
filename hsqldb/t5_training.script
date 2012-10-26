@@ -50,4 +50,3 @@ INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
 INSERT INTO USER VALUES(3,'1979-02-12 00:00:00.000000','jvedikunnel@financeactive.com','Joseph',0,'Vedikunnel')
 INSERT INTO USER VALUES(14,'2012-10-04 00:00:00.000000','dqsc@efsc','regfdsva',2,'scdazea')
-INSERT INTO USER VALUES(15,'0079-02-12 00:00:00.000000','hfgjv','regfdsv',0,'scdthgz')
