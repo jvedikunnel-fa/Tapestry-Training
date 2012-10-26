@@ -8,6 +8,8 @@
 
 <p>The current time is: <strong>${currentTime}</strong></p>
 
+<div t:clientId="container" t:type="jquery-highcharts/AbstractHighCharts" t:options="options"/>
+
 <!-- A Zone is a component that can be updated in place, triggered by other components. -->
 <t:zone t:id="zone">
     <p>

@@ -22,6 +22,7 @@ import java.util.Locale;
  */
 @Import(stylesheet = {"context:bootstrap/css/bootstrap.css",
                       "context:layout/layout.css"}
+        , library = {"context:js/demo.js"}
 //        ,stack = "training-stack"
 )
 public class Layout {
