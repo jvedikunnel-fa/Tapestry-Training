@@ -41,7 +41,7 @@ public class FormUser {
     @OnEvent(value = EventConstants.VALIDATE, component = "formUtilisateur")
     public void onValidateFromEmail() {
         String email = this.user.getEmail();
-        if (!email.contains("@") || !email.contains(".")) {
+        if (email != null && (!email.contains("@") || !email.contains("."))) {
             formUtilisateur.recordError("Mail malformé (doit contenir @ et .)");
         }
     }

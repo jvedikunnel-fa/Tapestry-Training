@@ -1,12 +1,16 @@
 package com.financeactive.training.services;
 
+import com.financeactive.training.pages.Index;
+import com.financeactive.training.pages.users.IndexUsers;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.hibernate.HibernateSymbols;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Contribute;
+import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Local;
+import org.apache.tapestry5.services.ComponentClassResolver;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
@@ -117,7 +121,10 @@ public class AppModule {
 //        configuration.add("training-stack", new TrainingStack());
     }
 
-    public void contributeSections(OrderedConfiguration<Sections> configuration) {
-
+    @Contribute(Sections.class)
+    public void contributeSections(OrderedConfiguration<Section> configuration,
+                                   @Inject ComponentClassResolver componentClassResolver) {
+        configuration.add("users", new Section(componentClassResolver, "Users", IndexUsers.class), "after:*");
+        configuration.add("index", new Section(componentClassResolver, "Index", Index.class));
     }
 }

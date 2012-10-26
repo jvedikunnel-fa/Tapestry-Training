@@ -5,12 +5,17 @@ import com.financeactive.training.services.Sections;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
+import org.apache.tapestry5.services.PersistentLocale;
+
+import java.util.Locale;
 
 /**
  * Layout component for pages of application training.
@@ -57,13 +62,18 @@ public class Layout {
     @Symbol(SymbolConstants.APPLICATION_VERSION)
     private String appVersion;
 
+    @Inject
+    PersistentLocale persistentLocale;
+
+    @Inject
+    Locale locale;
+
 
     public String getClassForPageName() {
         return resources.getPageName().equalsIgnoreCase(pageName)
                ? "current_page_item"
                : null;
     }
-
 
     public String getClassForSection() {
         String pageName1 = resources.getPageName();
@@ -82,5 +92,18 @@ public class Layout {
 
     public String getCurrentPage() {
         return resources.getPageName();
+    }
+
+    @OnEvent(value = EventConstants.ACTION, component = "toggleLocal")
+    public void onToggle() {
+        if (locale != null && locale.equals(Locale.FRENCH)) {
+            persistentLocale.set(Locale.ENGLISH);
+        } else {
+            persistentLocale.set(Locale.FRENCH);
+        }
+    }
+
+    public String getLocaleName() {
+        return locale.getLanguage();
     }
 }
