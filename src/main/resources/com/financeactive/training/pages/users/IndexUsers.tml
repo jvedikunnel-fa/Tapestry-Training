@@ -9,7 +9,10 @@
 </t:jquery.dialog>
 
 <br/>
-<t:actionlink t:id="create">New User</t:actionlink>
+<t:jquery.dialogajaxlink
+        t:dialog="formDialog"
+        t:zone="formZone" t:id="create">New User
+</t:jquery.dialogajaxlink>
 <br/>
 <br/>
 <t:grid source="users" add="actions" row="user" class="table table-striped table-bordered">
