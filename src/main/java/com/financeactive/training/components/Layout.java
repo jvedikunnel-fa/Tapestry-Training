@@ -65,9 +65,6 @@ public class Layout {
     @Inject
     PersistentLocale persistentLocale;
 
-    @Inject
-    Locale locale;
-
 
     public String getClassForPageName() {
         return resources.getPageName().equalsIgnoreCase(pageName)
@@ -96,14 +93,10 @@ public class Layout {
 
     @OnEvent(value = EventConstants.ACTION, component = "toggleLocal")
     public void onToggle() {
-        if (locale != null && locale.equals(Locale.FRENCH)) {
-            persistentLocale.set(Locale.ENGLISH);
-        } else {
-            persistentLocale.set(Locale.FRENCH);
-        }
+        persistentLocale.set(Locale.FRENCH.equals(persistentLocale.get()) ? Locale.ENGLISH : Locale.FRENCH);
     }
 
     public String getLocaleName() {
-        return locale.getLanguage();
+        return persistentLocale.get().getLanguage();
     }
 }
