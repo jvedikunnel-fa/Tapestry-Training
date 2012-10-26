@@ -13,6 +13,10 @@ import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: jvedikunnel
@@ -44,5 +48,36 @@ public class FormUser {
         if (email != null && (!email.contains("@") || !email.contains("."))) {
             formUtilisateur.recordError("Mail malformé (doit contenir @ et .)");
         }
+    }
+
+    @OnEvent(EventConstants.PROVIDE_COMPLETIONS)
+    public List<String> onProvideCompletions(String debutMot) {
+        LinkedList<String> resultats = new LinkedList<String>();
+        resultats.add(debutMot + new Random().nextDouble());
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        if (new Random().nextInt() % 2 == 1) {
+            resultats.add(debutMot + new Random().nextDouble());
+        }
+
+        return resultats;
     }
 }

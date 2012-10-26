@@ -4,7 +4,7 @@
     <fieldset>
         <t:select value="user?.honorific"/>
         <t:textfield value="user?.firstname" t:mixins="jquery/placeholder" text="literal:Prénom"/>
-        <t:textfield value="user?.lastname"/>
+        <t:textfield value="user?.lastname" t:mixins="jquery/autocomplete"/>
         <t:datefield value="user?.birthdate"/>
         <t:textfield t:id="email" value="user?.email"/>
         <t:submit/>
