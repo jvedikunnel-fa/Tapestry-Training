@@ -7,6 +7,6 @@
         <t:textfield value="user?.lastname"/>
         <t:datefield value="user?.birthdate"/>
         <t:textfield t:id="email" value="user?.email"/>
-        <t:submit title="Create/Update">Create/Update</t:submit>
+        <t:submit/>
     </fieldset>
 </t:form>
